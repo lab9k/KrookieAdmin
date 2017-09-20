@@ -1,0 +1,23 @@
+<h1>Listing shelves</h1>
+
+<%= link_to 'New shelf', new_shelf_path %>
+<table>
+    <tr>
+        <th>Main beacon</th>
+        <th>Beacon 1</th>
+        <th>Beacon 2</th>
+        <th>Beacon 3</th>
+        <th colspan="2"></th>
+    </tr>
+
+    <% @shelves.each do |shelf| %>
+        <tr>
+            <td><%= shelf.mainbeacon %></td>
+            <td><%= shelf.beacon1 %></td>
+            <td><%= shelf.beacon2 %></td>
+            <td><%= shelf.beacon3 %></td>
+            <td><%= link_to 'Show', shelf_path(shelf) %></td>
+            <td><%= link_to 'Edit', edit_shelf_path(shelf) %></td>
+        </tr>
+    <% end %>
+</table>
