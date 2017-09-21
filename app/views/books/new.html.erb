@@ -1,0 +1,9 @@
+<div class="searchbar">
+  <%= form_tag({:action => 'create'}) do %>
+    <%= label_tag(:ISBN, "ISBN:") %>
+    <%= text_field_tag :ISBN, params[:ISBN] %>
+    <%= label_tag(:shelf, "shelf:") %>
+    <%= text_field_tag :shelf, params[:shelf] %>
+    <%= submit_tag "Toevoegen", :name => nil %>
+  <% end %>
+</div>
