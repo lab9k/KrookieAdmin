@@ -35,6 +35,13 @@ class ShelfsController < ApplicationController
         end
     end
 
+    def destroy
+        @shelf = Shelf.find(params[:id])
+        @shelf.destroy
+
+        redirect_to shelfs_path
+    end
+
     private
         def shelf_params
             params.require(:shelf).permit(:mainbeacon, :beacon1, :beacon2, :beacon3)

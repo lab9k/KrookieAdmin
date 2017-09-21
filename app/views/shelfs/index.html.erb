@@ -18,6 +18,9 @@
             <td><%= shelf.beacon3 %></td>
             <td><%= link_to 'Show', shelf_path(shelf) %></td>
             <td><%= link_to 'Edit', edit_shelf_path(shelf) %></td>
+            <td><%= link_to 'Destroy', shelf_path(shelf),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
 </table>
