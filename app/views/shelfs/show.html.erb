@@ -18,7 +18,7 @@
     <%= @shelf.beacon1 %>
 </p>
 
-<h2>Comments</h2>
+<h2>Books</h2>
 <% @shelf.books.each do |book| %>
     <p>
       <strong>ISBN:</strong>
@@ -28,6 +28,11 @@
     <p>
       <strong>Shelf:</strong>
       <%= book.shelf.id %>
+    </p>
+    <p>
+    <%= link_to 'Remove book', shelf_book_path(book),
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
     </p>
 <% end %>
 

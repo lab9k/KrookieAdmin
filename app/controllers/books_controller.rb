@@ -5,10 +5,10 @@ class BooksController < ApplicationController
     redirect_to shelf_path(@shelf)
   end
 
-  def show
-
-
-  end
+  def destroy
+    @book = Book.find(params[:shelf_id])
+    @book.destroy
+end
 
   private
     def book_params
