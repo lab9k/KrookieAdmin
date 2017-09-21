@@ -10,18 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920155119) do
+ActiveRecord::Schema.define(version: 20170921075514) do
 
   create_table "books", force: :cascade do |t|
-    t.string "ISBN"
+    t.string "isbn"
     t.string "title"
     t.string "author"
-    t.string "fact"
-    t.integer "readingskill"
     t.string "category"
-    t.integer "shelf"
+    t.integer "readingskill"
+    t.string "fact"
+    t.integer "shelf_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shelf_id"], name: "index_books_on_shelf_id"
+  end
+
+  create_table "shelves", force: :cascade do |t|
+    t.string "mainbeacon"
+    t.string "beacon1"
+    t.string "beacon2"
+    t.string "beacon3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 end

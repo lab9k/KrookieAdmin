@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  ISBN: MyString
+  isbn: MyString
   title: MyString
   author: MyString
-  fact: MyString
-  readingskill: 1
   category: MyString
-  shelf: 1
+  readingskill: 1
+  fact: MyString
+  shelf: one
 
 two:
-  ISBN: MyString
+  isbn: MyString
   title: MyString
   author: MyString
-  fact: MyString
-  readingskill: 1
   category: MyString
-  shelf: 1
+  readingskill: 1
+  fact: MyString
+  shelf: two

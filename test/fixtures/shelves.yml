@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mainbeacon: MyString
+  beacon1: MyString
+  beacon2: MyString
+  beacon3: MyString
+
+two:
+  mainbeacon: MyString
+  beacon1: MyString
+  beacon2: MyString
+  beacon3: MyString

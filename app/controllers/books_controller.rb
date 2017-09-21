@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require 'net/http'
 require 'json'
 
@@ -38,8 +39,19 @@ class BooksController < ApplicationController
       age = "12"
     end
 
-    @book = Book.new(params[:ISBN], title, author, "", age, genre, params[:shelf])
+    @shelf = Shelf.find(params[:shelf_id])
+    @book = @shelf.books.create(params[:ISBN], title, author, "", age, genre)
     @book.save
-    redirect_to @book
+    redirect_to shelf_path(@shelf)
   end
+
+  def destroy
+    @book = Book.find(params[:shelf_id])
+    @book.destroy
+  end
+
+  private
+    def book_params
+      params.require(:book).permit(:isbn)
+    end
 end

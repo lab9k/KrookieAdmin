@@ -1,0 +1,51 @@
+<p>
+    <strong>Main beacon:</strong>
+    <%= @shelf.mainbeacon %>
+</p>
+
+<p>
+    <strong>Beacon 1</strong>
+    <%= @shelf.beacon1 %>
+</p>
+
+<p>
+    <strong>Beacon 2</strong>
+    <%= @shelf.beacon1 %>
+</p>
+
+<p>
+    <strong>Beacon 3</strong>
+    <%= @shelf.beacon1 %>
+</p>
+
+<h2>Books</h2>
+<% @shelf.books.each do |book| %>
+    <p>
+      <strong>ISBN:</strong>
+      <%= book.isbn %>
+    </p>
+
+    <p>
+      <strong>Shelf:</strong>
+      <%= book.shelf.id %>
+    </p>
+    <p>
+    <%= link_to 'Remove book', shelf_book_path(book),
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+    </p>
+<% end %>
+
+<h2>Add a book:</h2>
+<%= form_with(model: [ @shelf, @shelf.books.build ], local: true) do |f| %>
+    <p>
+      <%= f.label :isbn %><br>
+      <%= f.text_field :isbn %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+
+<%= link_to 'Edit', edit_shelf_path(@shelf) %> |
+<%= link_to 'Back', shelfs_path %>
