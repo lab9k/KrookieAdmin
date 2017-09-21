@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 require 'net/http'
 require 'json'
 
@@ -8,39 +7,41 @@ class BooksController < ApplicationController
   end
 
   def create
-    @query = 'http://zoeken.oost-vlaanderen.bibliotheek.be/api/v0/search/?q=isbn:' + params[:ISBN] + '&authorization=f2c359618130a698cca2e6b2736ab9fc'
+    @query = 'http://zoeken.oost-vlaanderen.bibliotheek.be/api/v0/search/?q=isbn:' + params[:book][:isbn] + '&authorization=f2c359618130a698cca2e6b2736ab9fc'
     uri = URI(@query)
     req = Net::HTTP.get(uri)
     book_json = JSON.parse(Hash.from_xml(req).to_json)
     if(book_json.key?('aquabrowser'))
       args = book_json['aquabrowser']['results']['result']
     end
+    test = {}
+    test['isbn'] = params[:book][:isbn]
     if(args.key?('authors'))
-      author = args['authors']['main_author']
+      test['author'] = args['authors']['main_author']
     else
-      author = ""
+      test['author'] = ""
     end
 
     if(args.key?('titles'))
-      title = args['titles']['title']
+      test['title'] = args['titles']['title']
     else
-      title = ""
+      test['title'] = ""
     end
 
     if(args.key?('genres'))
-      genre = args['genres']['genre'][0]
+      test['category'] = args['genres']['genre'][0]
     else
-      genre = ""
+      test['category'] = ""
     end
 
     if(args.key?('target_audiences'))
-      age = args['target_audiences']['target_audience'][0].tr('age', '').gsub(/-.*/, '')
+      test['readingskill'] = args['target_audiences']['target_audience'][0].tr('age', '').gsub(/-.*/, '')
     else
-      age = "12"
+      test['readingskill'] = "12"
     end
 
     @shelf = Shelf.find(params[:shelf_id])
-    @book = @shelf.books.create(params[:ISBN], title, author, "", age, genre)
+    @book = @shelf.books.create(test)
     @book.save
     redirect_to shelf_path(@shelf)
   end
