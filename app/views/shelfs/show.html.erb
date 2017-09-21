@@ -21,12 +21,12 @@
 <h2>Comments</h2>
 <% @shelf.books.each do |book| %>
     <p>
-      <strong>Commenter:</strong>
+      <strong>ISBN:</strong>
       <%= book.isbn %>
     </p>
 
     <p>
-      <strong>Comment:</strong>
+      <strong>Shelf:</strong>
       <%= book.shelf.id %>
     </p>
 <% end %>
