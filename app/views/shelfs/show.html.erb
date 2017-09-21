@@ -18,5 +18,29 @@
     <%= @shelf.beacon1 %>
 </p>
 
+<h2>Comments</h2>
+<% @shelf.books.each do |book| %>
+    <p>
+      <strong>Commenter:</strong>
+      <%= book.isbn %>
+    </p>
+
+    <p>
+      <strong>Comment:</strong>
+      <%= book.shelf.id %>
+    </p>
+<% end %>
+
+<h2>Add a book:</h2>
+<%= form_with(model: [ @shelf, @shelf.books.build ], local: true) do |f| %>
+    <p>
+      <%= f.label :isbn %><br>
+      <%= f.text_field :isbn %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+
 <%= link_to 'Edit', edit_shelf_path(@shelf) %> |
 <%= link_to 'Back', shelfs_path %>

@@ -4,4 +4,5 @@ class Shelf < ApplicationRecord
     validates :beacon1, presence: true, :format => {:with => regex}
     validates :beacon2, presence: true, :format => {:with => regex}
     validates :beacon3, presence: true, :format => {:with => regex}
+    has_many :books
 end
