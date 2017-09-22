@@ -30,6 +30,7 @@
       <%= book.title %>
     </p>
     <p>
+      <%= link_to 'Show book', book_path(book) %> |
       <%= link_to 'Remove book', book_path(book),method: :delete, data: { confirm: 'Are you sure?' } %>
     </p>
   <% end %>
