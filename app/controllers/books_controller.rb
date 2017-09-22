@@ -64,6 +64,12 @@ class BooksController < ApplicationController
       test['author'] = ""
     end
 
+    if(args.key?('awards'))
+      test['fact'] = args['awards']['award']
+    else
+      test['title'] = ""
+    end
+
     if(args.key?('titles'))
       test['title'] = args['titles']['title']
     else
