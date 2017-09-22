@@ -1,5 +1,20 @@
+<nav>
+  <div class="container">
+    <a class="logo" href="/">
+      <div class="logo-wrapper">
+        <img src="/images/Krookie-Red.svg">
+        <p>Admin</p>
+      </div>
+    </a>
+    <ul>
+      <div class="navlink"><li><%= link_to 'Home', welcome_index_path %></li></div>
+      <div class="navlink"><li><%= link_to 'Shelves', shelves_path %></li></div>
+      <div class="navlink"><li><%= link_to 'Books', books_path %></li></div>
+    </ul>
+  </div>
+</nav>
+<div class="container">
 <h1>Edit shelf</h1>
-
 <%= render 'form' %>
-
-<%= link_to 'Back', shelves_path %>
+<div class="btn"><%= link_to 'Back', shelves_path %></div>
+</div>

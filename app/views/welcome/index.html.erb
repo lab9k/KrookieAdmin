@@ -1,2 +1,15 @@
-<%= link_to 'Books', books_path %> |
-<%= link_to 'Shelves', shelves_path %>
+<nav>
+  <div class="container">
+    <a class="logo" href="/">
+      <div class="logo-wrapper">
+        <img src="/images/Krookie-Red.svg">
+        <p>Admin</p>
+      </div>
+    </a>
+    <ul>
+      <div class="navlink"><li><%= link_to 'Home', welcome_index_path %></li></div>
+      <div class="navlink"><li><%= link_to 'Shelves', shelves_path %></li></div>
+      <div class="navlink"><li><%= link_to 'Books', books_path %></li></div>
+    </ul>
+  </div>
+</nav>
