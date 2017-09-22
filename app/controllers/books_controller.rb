@@ -10,14 +10,7 @@ class BooksController < ApplicationController
       jsonlist.push( {
                          "title" => book.title,
                          "isbn" => book.isbn,
-                         "author" => book.author,
-                         "category" => book.category,
-                         "readingskill" => book.readingskill,
-                         "fact" => book.fact,
-                         "mainbeacon" => book.shelf.mainbeacon,
-                         "beacon1" => book.shelf.beacon1,
-                         "beacon2" => book.shelf.beacon2,
-                         "beacon3" => book.shelf.beacon3
+                         "url" => book_url(book)
                      })
 
     end
@@ -69,6 +62,12 @@ class BooksController < ApplicationController
       test['author'] = args['authors']['main_author']
     else
       test['author'] = ""
+    end
+
+    if(args.key?('awards'))
+      test['fact'] = args['awards']['award']
+    else
+      test['title'] = ""
     end
 
     if(args.key?('titles'))
