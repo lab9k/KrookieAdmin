@@ -98,6 +98,14 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def update
+    @book = Book.find(params[:id])
+
+    @book.shelf = Shelf.find(params[:shelf])
+    @book.save
+    redirect_to books_path
+  end
+
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
@@ -105,6 +113,6 @@ class BooksController < ApplicationController
 
   private
     def book_params
-      params.require(:book).permit(:isbn)
+      params.require(:book).permit(:isbn, :shelf)
     end
 end

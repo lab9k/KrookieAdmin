@@ -39,7 +39,7 @@ class ShelvesController < ApplicationController
         @shelf = Shelf.find(params[:id])
         @shelf.destroy
 
-        redirect_to shelfs_path
+        redirect_to shelves_path
     end
 
     private
