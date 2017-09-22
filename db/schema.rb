@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170921075514) do
 
-  create_table "books", force: :cascade do |t|
+  create_table "books", id: false, force: :cascade do |t|
     t.string "isbn"
     t.string "title"
     t.string "author"

@@ -28,12 +28,6 @@
     <p>
       <strong>Title:</strong>
       <%= book.title %>
-      <%= book.author %>
-      <%= book.fact %>
-      <%= book.readingskill %>
-      <%= book.category %>
-      <%= book.shelf_id %>
-
     </p>
     <p>
       <%= link_to 'Remove book', shelf_book_path(book),method: :delete, data: { confirm: 'Are you sure?' } %>
