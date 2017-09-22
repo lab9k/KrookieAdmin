@@ -30,20 +30,11 @@
       <%= book.title %>
     </p>
     <p>
-      <%= link_to 'Remove book', shelf_book_path(book),method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Remove book', book_path(book),method: :delete, data: { confirm: 'Are you sure?' } %>
     </p>
   <% end %>
 
-<h2>Add a book:</h2>
-<%= form_with(model: [ @shelf, @shelf.books.build ], local: true) do |sh| %>
-    <p>
-      <%= sh.label :isbn %><br>
-      <%= sh.text_field :isbn %>
-    </p>
-    <p>
-      <%= sh.submit %>
-    </p>
-<% end %>
+
 
 <%= link_to 'Edit', edit_shelf_path(@shelf) %> |
 <%= link_to 'Back', shelfs_path %>
