@@ -11,10 +11,6 @@ class ShelvesController < ApplicationController
         @shelf = Shelf.new
     end
 
-    def edit
-        @shelf = Shelf.find(params[:id])
-    end
-
     def create
         @shelf = Shelf.new(shelf_params)
 
@@ -23,6 +19,10 @@ class ShelvesController < ApplicationController
         else
             render 'new'
         end
+    end
+
+    def edit
+        @shelf = Shelf.find(params[:id])
     end
 
     def update

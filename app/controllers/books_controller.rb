@@ -4,31 +4,26 @@ require 'json'
 class BooksController < ApplicationController
   def index
     @books = Book.all
-    jsonlist = Array.new
 
+    jsonlist = Array.new
     @books.each do |book|
       jsonlist.push( {
                          "title" => book.title,
                          "isbn" => book.isbn,
                          "url" => book_url(book)
                      })
-
     end
+
     respond_to do |format|
       format.html
       format.json { render :json => jsonlist}
     end
   end
 
-  def new
-    @shelves = Shelf.all
-    @book = Book.new
-  end
-
   def show
     @book = Book.find(params[:id])
-    jsonlist = Array.new
 
+    jsonlist = Array.new
     jsonlist.push( {
                        "title" => @book.title,
                        "isbn" => @book.isbn,
@@ -46,6 +41,11 @@ class BooksController < ApplicationController
       format.html
       format.json { render :json => jsonlist}
     end
+  end
+
+  def new
+    @shelves = Shelf.all
+    @book = Book.new
   end
 
   def create
