@@ -17,9 +17,10 @@
   <%= form_tag({:action => 'create'}) do %>
     <%= label_tag(:ISBN, "ISBN:") %>
     <%= text_field_tag :ISBN, params[:ISBN] %>
+    <%= label_tag(:shelf, "shelf:") %>
     <% options = options_from_collection_for_select(@shelves, 'id', 'id') %>
     <%= select_tag 'shelf',  options %>
     <%= submit_tag "Toevoegen", :name => nil %>
   <% end %>
-  <div class="btn"><%= link_to 'Back', book_path %></div>
+  <div class="btn"><%= link_to 'Back', books_path %></div>
 </div>
