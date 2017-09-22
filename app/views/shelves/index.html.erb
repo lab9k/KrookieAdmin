@@ -1,26 +1,47 @@
-<h1>Listing shelves</h1>
+<nav>
+  <div class="container">
+    <a class="logo" href="/">
+      <div class="logo-wrapper">
+        <img src="/images/Krookie-Red.svg">
+        <p>Admin</p>
+      </div>
+    </a>
+    <ul>
+      <a><li><%= link_to 'Home', welcome_index_path %></li></a>
+      <a><li><%= link_to 'Shelves', shelves_path %></li></a>
+      <a><li><%= link_to 'Books', books_path %></li></a>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <h1>Listing shelves</h1>
 
-<%= link_to 'New shelf', new_shelf_path %>
-<table>
-    <tr>
+  <div class="btn"><%= link_to 'Add new shelf', new_shelf_path %></div>
+
+  <table>
+    <thead>
+      <tr>
         <th>Main beacon</th>
         <th>Beacon 1</th>
         <th>Beacon 2</th>
         <th>Beacon 3</th>
-        <th colspan="2"></th>
-    </tr>
-
-    <% @shelves.each do |shelf| %>
-        <tr>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shelves.each do |shelf| %>
+          <tr>
             <td><%= shelf.mainbeacon %></td>
             <td><%= shelf.beacon1 %></td>
             <td><%= shelf.beacon2 %></td>
             <td><%= shelf.beacon3 %></td>
-            <td><%= link_to 'Show', shelf_path(shelf) %></td>
-            <td><%= link_to 'Edit', edit_shelf_path(shelf) %></td>
-            <td><%= link_to 'Destroy', shelf_path(shelf),
-                    method: :delete,
-                    data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-    <% end %>
-</table>
+            <td><div class="btn"><%= link_to 'Show', shelf_path(shelf) %></div></td>
+            <td><div class="btn"><%= link_to 'Edit', edit_shelf_path(shelf) %></div></td>
+            <td><div class="btn"><%= link_to 'Destroy', shelf_path(shelf),
+                            method: :delete,
+                                             data: { confirm: 'Are you sure?' } %></div></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
