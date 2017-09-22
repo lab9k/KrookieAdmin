@@ -2,6 +2,6 @@ Rails.application.routes.draw do
   get 'welcome/index'
   root 'welcome#index'
 
-  resources :shelfs
+  resources :shelves
   resources :books
 end
