@@ -1,24 +1,42 @@
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
-<p>
-  <strong>ISBN:</strong>
-  <%= @book.isbn %>
-</p>
-<p>
-  <strong>readingskill:</strong>
-  <%= @book.readingskill %>
-</p>
-<p>
-  <strong>category:</strong>
-  <%= @book.category %>
-</p>
-<p>
-  <strong>fact:</strong>
-  <%= @book.fact %>
-</p>
+<nav>
+  <div class="container">
+    <a class="logo" href="/">
+      <div class="logo-wrapper">
+        <img src="/images/Krookie-Red.svg">
+        <p>Admin</p>
+      </div>
+    </a>
+    <ul>
+      <div class="navlink"><li><%= link_to 'Home', welcome_index_path %></li></div>
+      <div class="navlink"><li><%= link_to 'Shelves', shelves_path %></li></div>
+      <div class="navlink"><li><%= link_to 'Books', books_path %></li></div>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <p>
+    <strong>Title:</strong>
+    <%= @book.title %>
+  </p>
+  <p>
+    <strong>Author:</strong>
+    <%= @book.author %>
+  </p>
+  <p>
+    <strong>ISBN:</strong>
+    <%= @book.isbn %>
+  </p>
+  <p>
+    <strong>readingskill:</strong>
+    <%= @book.readingskill %>
+  </p>
+  <p>
+    <strong>category:</strong>
+    <%= @book.category %>
+  </p>
+  <p>
+    <strong>fact:</strong>
+    <%= @book.fact %>
+  </p>
+  <div class="btn"><%= link_to 'Back', books_path %></div>
+</div>

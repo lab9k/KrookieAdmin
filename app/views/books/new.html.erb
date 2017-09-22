@@ -1,4 +1,19 @@
-<div class="searchbar">
+<nav>
+  <div class="container">
+    <a class="logo" href="/">
+      <div class="logo-wrapper">
+        <img src="/images/Krookie-Red.svg">
+        <p>Admin</p>
+      </div>
+    </a>
+    <ul>
+      <div class="navlink"><li><%= link_to 'Home', welcome_index_path %></li></div>
+      <div class="navlink"><li><%= link_to 'Shelves', shelves_path %></li></div>
+      <div class="navlink"><li><%= link_to 'Books', books_path %></li></div>
+    </ul>
+  </div>
+</nav>
+<div class="container">
   <%= form_tag({:action => 'create'}) do %>
     <%= label_tag(:ISBN, "ISBN:") %>
     <%= text_field_tag :ISBN, params[:ISBN] %>
@@ -6,4 +21,5 @@
     <%= select_tag 'shelf',  options %>
     <%= submit_tag "Toevoegen", :name => nil %>
   <% end %>
+  <div class="btn"><%= link_to 'Back', book_path %></div>
 </div>

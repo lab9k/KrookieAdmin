@@ -1,24 +1,40 @@
-<h1>Edit book</h1>
-
-<%= form_with model: @book, local: true do |form| %>
-
-    <% if @book.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@shelf.errors.count, "error") %> prohibited
-            this book from being saved:
-          </h2>
-          <ul>
-            <% @book.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-    <%= label_tag(:shelf, "shelf:") %>
-    <%= text_field_tag :shelf, params[:shelf] %>
-    <p>
-      <%= form.submit %>
-    </p>
-<% end %>
-<%= link_to 'Back', book_path %>
+<nav>
+  <div class="container">
+    <a class="logo" href="/">
+      <div class="logo-wrapper">
+        <img src="/images/Krookie-Red.svg">
+        <p>Admin</p>
+      </div>
+    </a>
+    <ul>
+      <div class="navlink"><li><%= link_to 'Home', welcome_index_path %></li></div>
+      <div class="navlink"><li><%= link_to 'Shelves', shelves_path %></li></div>
+      <div class="navlink"><li><%= link_to 'Books', books_path %></li></div>
+    </ul>
+  </div>
+</nav>
+<div class='container'>
+  <h1>Edit book</h1>
+  <%= form_with model: @book, local: true do |form| %>
+      <% if @book.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@shelf.errors.count, "error") %> prohibited
+              this book from being saved:
+            </h2>
+            <ul>
+              <% @book.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <%= label_tag(:shelf, "shelf:") %>
+      <% options = options_from_collection_for_select(Shelf.all, 'id', 'id') %>
+      <%= select_tag 'shelf',  options %>
+      <p>
+        <%= form.submit %>
+      </p>
+  <% end %>
+  <div class="btn"><%= link_to 'Back', book_path %></div>
+</div>

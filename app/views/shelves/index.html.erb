@@ -7,16 +7,14 @@
       </div>
     </a>
     <ul>
-      <a><li><%= link_to 'Home', welcome_index_path %></li></a>
-      <a><li><%= link_to 'Shelves', shelves_path %></li></a>
-      <a><li><%= link_to 'Books', books_path %></li></a>
+      <div class="navlink"><li><%= link_to 'Home', welcome_index_path %></li></div>
+      <div class="navlink"><li><%= link_to 'Shelves', shelves_path %></li></div>
+      <div class="navlink"><li><%= link_to 'Books', books_path %></li></div>
     </ul>
   </div>
 </nav>
 <div class="container">
   <h1>Listing shelves</h1>
-
-  <div class="btn"><%= link_to 'Add new shelf', new_shelf_path %></div>
 
   <table>
     <thead>
@@ -44,4 +42,6 @@
       <% end %>
     </tbody>
   </table>
+  <div class="btn"><%= link_to 'Add new shelf', new_shelf_path %></div>
+  <div class="btn"><%= link_to 'Back', welcome_index_path %></div>
 </div>
